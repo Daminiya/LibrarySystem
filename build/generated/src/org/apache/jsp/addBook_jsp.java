@@ -12,6 +12,7 @@ public final class addBook_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -21,10 +22,12 @@ public final class addBook_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   public void _jspInit() {
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
     _jspx_tagPool_c_forEach_var_items.release();
+    _jspx_tagPool_c_if_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -129,7 +132,7 @@ public final class addBook_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("        <div class=\"container\">\n");
       out.write("            ");
-//=request.getAttribute("mainclassificationList")
+//=request.getAttribute("subclassificationList")
       out.write("\n");
       out.write("            <form action=\"addBookController\" method=\"Post\">\n");
       out.write("                <div class=\"row\">\n");
@@ -137,7 +140,9 @@ public final class addBook_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <label for=\"BookId\">Book Id</label>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"col-75\">\n");
-      out.write("                        <input type=\"text\" id=\"BookId\" name=\"BookId\" placeholder=\"Book Id...\">\n");
+      out.write("                        <input type=\"text\" id=\"BookId\" name=\"BookId\" placeholder=\"Book Id...\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${book.getBookId()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\">\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"row\">\n");
@@ -145,7 +150,9 @@ public final class addBook_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <label for=\"Title\">Title</label>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"col-75\">\n");
-      out.write("                        <input type=\"text\" id=\"Title\" name=\"Title\" placeholder=\"Book Title...\">\n");
+      out.write("                        <input type=\"text\" id=\"Title\" name=\"Title\" placeholder=\"Book Title...\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${book.getTitle()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\">\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"row\">\n");
@@ -153,7 +160,9 @@ public final class addBook_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <label for=\"Author\">Author</label>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"col-75\">\n");
-      out.write("                        <input type=\"text\" id=\"Author\" name=\"Author\" placeholder=\"Book Author...\">\n");
+      out.write("                        <input type=\"text\" id=\"Author\" name=\"Author\" placeholder=\"Book Author...\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${book.getAuthor()}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\">\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"row\">\n");
@@ -162,12 +171,13 @@ public final class addBook_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"col-75\">\n");
-      out.write("                        <select class=\"form-control\" name=\"mainClassificationId\"  onchange=\"selectvalue(form);\">\n");
+      out.write("                        <select class=\"form-control\" name=\"mainClassification\"  onChange=\"selectvalue(form);\">\n");
       out.write("                            ");
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("                                \n");
+      out.write("\n");
+      out.write("\n");
       out.write("                        </select>\n");
       out.write("                    </div>\n");
       out.write("\n");
@@ -194,7 +204,7 @@ public final class addBook_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <option value=\"-1\">Select</option>\n");
       out.write("                            ");
 
-                            for (int i = 1600; i < 2100; i++) {
+                                for (int i = 1800; i < 2020; i++) {
       out.write("\n");
       out.write("                            <option value=\"");
       out.print(i);
@@ -207,41 +217,64 @@ public final class addBook_jsp extends org.apache.jasper.runtime.HttpJspBase
                             
       out.write("\n");
       out.write("                        </select>                    </div>\n");
-      out.write("                <div class=\"row\">\n");
-      out.write("                    <div class=\"col-25\">\n");
-      out.write("                        <label for=\"Last Printed Year\">Last Printed Year</label>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-75\">\n");
-      out.write("                        <input type=\"text\" id=\"LastPrintedYear\" name=\"LastPrintedYear\" placeholder=\"Last Printed Year...\">\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"row\">\n");
-      out.write("                    <div class=\"col-25\">\n");
-      out.write("                        <label for=\"ISBN NO\">ISBN NO</label>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-75\">\n");
-      out.write("                        <input type=\"text\" id=\"ISBNNO\" name=\"ISBNNO\" placeholder=\"ISBN NO...\">\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"row\">\n");
-      out.write("                    <div class=\"col-25\">\n");
-      out.write("                        <label for=\"No Of Pages\">No Of Pages</label>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"col-75\">\n");
-      out.write("                        <input type=\"text\" id=\"NoOfPages\" name=\"NoOfPages\" placeholder=\"No Of Pages...\">\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
+      out.write("                    <div class=\"row\">\n");
+      out.write("                        <div class=\"col-25\">\n");
+      out.write("                            <label for=\"Last Printed Year\">Last Printed Year</label>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"col-75\">\n");
+      out.write("                            <select id=\"LastPrintedYear\" name=\"LastPrintedYear\" class=\"form-control\">\n");
+      out.write("                                <option value=\"-1\">Select</option>\n");
+      out.write("                                ");
+
+                                    for (int i = 1800; i < 2020; i++) {
       out.write("\n");
-      out.write("                <div class=\"row\">\n");
-      out.write("                    <input type=\"submit\" value=\"Submit\">\n");
-      out.write("                </div>\n");
-      out.write("            </form>\n");
-      out.write("        </div>\n");
+      out.write("                                <option value=\"");
+      out.print(i);
+      out.write('"');
+      out.write('>');
+      out.print(i);
+      out.write("</option>\n");
+      out.write("                                ");
+}
+                                
+      out.write("\n");
+      out.write("                            </select>       \n");
+      out.write("\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"row\">\n");
+      out.write("                            <div class=\"col-25\">\n");
+      out.write("                                <label for=\"ISBN NO\">ISBN NO</label>\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"col-75\">\n");
+      out.write("                                <input type=\"text\" id=\"ISBNNO\" name=\"ISBNNO\" placeholder=\"ISBN NO...\">\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"row\">\n");
+      out.write("                            <div class=\"col-25\">\n");
+      out.write("                                <label for=\"No Of Pages\">No Of Pages</label>\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"col-75\">\n");
+      out.write("                                <input type=\"text\" id=\"NoOfPages\" name=\"NoOfPages\" placeholder=\"No Of Pages...\">\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("\n");
+      out.write("                        <div class=\"row\">\n");
+      out.write("                            <input type=\"submit\" value=\"Submit\">\n");
+      out.write("                        </div>\n");
+      out.write("                        </form>\n");
+      out.write("                    </div>\n");
       out.write("\n");
       out.write("\n");
-      out.write("    </body>\n");
-      out.write("  \n");
-      out.write("</html>\n");
+      out.write("                    </body>\n");
+      out.write("                    <script>\n");
+      out.write("\n");
+      out.write("                        function selectvalue(form) {\n");
+      out.write("                            form.action = \"ListController\";\n");
+      out.write("                            form.submit();\n");
+      out.write("                        }\n");
+      out.write("\n");
+      out.write("                    </script>\n");
+      out.write("                    </html>\n");
       out.write("\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -275,9 +308,13 @@ public final class addBook_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                <option value=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mainstatus}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write('"');
+          out.write(' ');
+          if (_jspx_meth_c_if_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
+            return true;
           out.write('>');
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mainstatus}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</option>\n");
+          out.write("\n");
           out.write("                            ");
           int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -295,6 +332,32 @@ public final class addBook_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_th_c_forEach_0.doFinally();
       _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
     }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_0, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_0)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_0);
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mainstatus eq book.getMainClassification()}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+    if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("Selected=\"True\"");
+        int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
     return false;
   }
 

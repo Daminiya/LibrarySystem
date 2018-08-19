@@ -86,7 +86,7 @@
                         <label for="BookId">Book Id</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="BookId" name="BookId" placeholder="Book Id...">
+                        <input type="text" id="BookId" name="BookId" placeholder="Book Id..." value="${book.getBookId()}">
                     </div>
                 </div>
                 <div class="row">
@@ -94,7 +94,7 @@
                         <label for="Title">Title</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="Title" name="Title" placeholder="Book Title...">
+                        <input type="text" id="Title" name="Title" placeholder="Book Title..." value="${book.getTitle()}">
                     </div>
                 </div>
                 <div class="row">
@@ -102,7 +102,7 @@
                         <label for="Author">Author</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="Author" name="Author" placeholder="Book Author...">
+                        <input type="text" id="Author" name="Author" placeholder="Book Author..." value="${book.getAuthor()}">
                     </div>
                 </div>
                 <div class="row">
@@ -113,9 +113,11 @@
                     <div class="col-75">
                         <select class="form-control" name="mainClassification"  onChange="selectvalue(form);">
                             <c:forEach  items="${mainclassificationList}" var="mainstatus">
-                                <option value="${mainstatus}">${mainstatus}</option>
+                                <option value="${mainstatus}" <c:if test="${mainstatus eq book.getMainClassification()}">Selected="True"</c:if>>${mainstatus}</option>
+
                             </c:forEach>
-                                
+
+
                         </select>
                     </div>
 
@@ -140,51 +142,58 @@
                         <select id="YofPublish" name="YofPublish" class="form-control">
                             <option value="-1">Select</option>
                             <%
-                            for (int i = 1600; i < 2100; i++) {%>
+                                for (int i = 1800; i < 2020; i++) {%>
                             <option value="<%=i%>"><%=i%></option>
                             <%}
                             %>
                         </select>                    </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="Last Printed Year">Last Printed Year</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="LastPrintedYear" name="LastPrintedYear" placeholder="Last Printed Year...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="ISBN NO">ISBN NO</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="ISBNNO" name="ISBNNO" placeholder="ISBN NO...">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="No Of Pages">No Of Pages</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="NoOfPages" name="NoOfPages" placeholder="No Of Pages...">
-                    </div>
-                </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="Last Printed Year">Last Printed Year</label>
+                        </div>
+                        <div class="col-75">
+                            <select id="LastPrintedYear" name="LastPrintedYear" class="form-control">
+                                <option value="-1">Select</option>
+                                <%
+                                    for (int i = 1800; i < 2020; i++) {%>
+                                <option value="<%=i%>"><%=i%></option>
+                                <%}
+                                %>
+                            </select>       
 
-                <div class="row">
-                    <input type="submit" value="Submit">
-                </div>
-            </form>
-        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="ISBN NO">ISBN NO</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="ISBNNO" name="ISBNNO" placeholder="ISBN NO..." value="${book.getIsbnNo()}" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="No Of Pages">No Of Pages</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="NoOfPages" name="NoOfPages" placeholder="No Of Pages..."  value="${book.getNoOfPages()}">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <input type="submit" value="Submit">
+                        </div>
+                        </form>
+                    </div>
 
 
-    </body>
-    <script>
- 
-        function selectvalue(form){
-          form.action="ListController";
-          form.submit();
-        }
-        
-  </script>
-</html>
+                    </body>
+                    <script>
+
+                        function selectvalue(form) {
+                            form.action = "ListController";
+                            form.submit();
+                        }
+
+                    </script>
+                    </html>
 
