@@ -111,7 +111,7 @@
 
                     </div>
                     <div class="col-75">
-                        <select class="form-control" name="mainClassification"  onChange="selectvalue(form);">
+                        <select class="form-control" name="mainClassification" value="${book.getMainClassification()}" onChange="selectvalue(form);">
                             <c:forEach  items="${mainclassificationList}" var="mainstatus">
                                 <option value="${mainstatus}" <c:if test="${mainstatus eq book.getMainClassification()}">Selected="True"</c:if>>${mainstatus}</option>
 

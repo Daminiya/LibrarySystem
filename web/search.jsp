@@ -15,26 +15,20 @@ p, h3 {
     color:blue;
 }
 </style>
-<form action="//www.html.am/html-codes/forms/html-form-tag-action.cfm" target="result2" method="get">
+<form action="SearchViewController" method="get">
 
 <p>What would you like for Search?</p>
 
-<input type="text" name="bookId" value="">
-<select name="example">
+<input type="text" name="value" value="">
+<select name="field">
     <option value="bookId">BookId</option>
     <option value="title">Title</option>
-    <option value="author">Author</option>
-    <option value="mainClassification">Main Classification</option>
-	<option value="subClassification">Sub Classification</option>
-	<option value="yearOf Publishing">Year Of Publishing</option>
-    <option value="lastPrintedYear">Last Printed Year</option>
-    <option value="isbnNo">ISBN No</option>
-	<option value="NnoOfPages">No Of Pages</option>
+    <option value="author">Author</option>  
 </select>
 <input type="submit" value="Search"></p>
 
 
-
+ 
 
 
 </form>
